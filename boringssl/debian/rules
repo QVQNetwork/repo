@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE=1
+export GOCACHE=$(shell mktemp -d /tmp/gocache-XXXX)
+
+override_dh_auto_build:
+	make -C build crypto ssl bssl
+
+override_dh_auto_configure:
+	mkdir -p build
+	cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+override_dh_auto_test:
+
+override_dh_auto_clean:
+	rm -rf build
+
+%:
+	dh $@

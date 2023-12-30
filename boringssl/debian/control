@@ -1,0 +1,38 @@
+Source: boringssl
+Section: libs
+Priority: optional
+Maintainer: lrinQVQ <lrin@qvq.network>
+Build-Depends: debhelper (>= 13),
+               cmake (>= 3.14),
+               gcc (>= 6.1) | clang (>=6.0),
+               perl,
+               libunwind-dev (>=1.3.0),
+               golang-go:native (>= 2:1.21~),
+               golang-golang-x-crypto-dev (>= 1:0.14.0),
+               golang-golang-x-term-dev (>= 0.13.0),
+               golang-golang-x-text-dev (>= 0.13.0),
+               golang-golang-x-net-dev (>= 0.17.0)
+Standards-Version: 122.0.6197.0
+Homepage: https://boringssl.googlesource.com/boringssl
+Rules-Requires-Root: no
+
+Package: libboringssl-static
+Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}
+Multi-Arch: same
+Description: BoringSSL is a fork of OpenSSL that is designed to meet Google's needs.
+  Although BoringSSL is an open source project, it is not intended for general use, as OpenSSL is. We don't recommend that third parties depend upon it. Doing so is likely to be frustrating because there are no guarantees of API or ABI stability.
+  Programs ship their own copies of BoringSSL when they use it and we update everything as needed when deciding to make API changes. This allows us to mostly avoid compromises in the name of compatibility. It works for us, but it may not work for you.
+  BoringSSL arose because Google used OpenSSL for many years in various ways and, over time, built up a large number of patches that were maintained while tracking upstream OpenSSL. As Google's product portfolio became more complex, more copies of OpenSSL sprung up and the effort involved in maintaining all these patches in multiple places was growing steadily.
+  Currently BoringSSL is the SSL library in Chrome/Chromium, Android (but it's not part of the NDK) and a number of other apps/programs.
+
+Package: bssl
+Section: admin
+Architecture: any
+Depends: ${misc:Depends}
+Description: BoringSSL is a fork of OpenSSL that is designed to meet Google's needs.
+  Although BoringSSL is an open source project, it is not intended for general use, as OpenSSL is. We don't recommend that third parties depend upon it. Doing so is likely to be frustrating because there are no guarantees of API or ABI stability.
+  Programs ship their own copies of BoringSSL when they use it and we update everything as needed when deciding to make API changes. This allows us to mostly avoid compromises in the name of compatibility. It works for us, but it may not work for you.
+  BoringSSL arose because Google used OpenSSL for many years in various ways and, over time, built up a large number of patches that were maintained while tracking upstream OpenSSL. As Google's product portfolio became more complex, more copies of OpenSSL sprung up and the effort involved in maintaining all these patches in multiple places was growing steadily.
+  Currently BoringSSL is the SSL library in Chrome/Chromium, Android (but it's not part of the NDK) and a number of other apps/programs.

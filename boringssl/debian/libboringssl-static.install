@@ -1,0 +1,3 @@
+build/ssl/libssl.a usr/lib/boringssl/static/
+build/crypto/libcrypto.a usr/lib/boringssl/static/
+include/* usr/include/boringssl/
